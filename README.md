@@ -1,4 +1,5 @@
 # Green Flash: bounds, estimator, and benchmark
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17047224.svg)](https://doi.org/10.5281/zenodo.17047224)
 This repo provides:
 1) A mechanistic bound for green-rim separation ΔR from atmospheric dispersion.
 2) A practical estimator for flash duration τ from video.

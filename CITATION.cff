@@ -6,3 +6,5 @@ authors:
 date-released: 2025-09-03
 license: MIT
 repository-code: https://example.com/green-flash-research
+doi: 10.5281/zenodo.17047339
+version: v0.1.2
