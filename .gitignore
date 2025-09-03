@@ -1,0 +1,17 @@
+.DS_Store
+# Python
+*.egg-info/
+__pycache__/
+dist/
+build/
+.venv/
+
+# LaTeX
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.pdf

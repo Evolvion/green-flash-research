@@ -1,0 +1,17 @@
+[
+  {
+    "id": "<fill>",
+    "type": "result|plot|certificate",
+    "desc": "<what>",
+    "path": "<path>",
+    "sha256": "<sha256>",
+    "generated_in_round": 0,
+    "inputs": [],
+    "seed": 0,
+    "software": {
+      "python": "3.11",
+      "libs": {}
+    },
+    "commit_hint": "HEAD"
+  }
+]

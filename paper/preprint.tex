@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage[hidelinks]{hyperref}
+
+% Units/macros
+\newcommand{\arcmin}{\ensuremath{^{\prime}}}
+\newcommand{\arcsec}{\ensuremath{^{\prime\prime}}}
+
+\title{Mechanistic Bounds and a Practical Estimator for the Solar Green Flash}
+\author{%
+  Jan Vorel\\
+  \texttt{\href{mailto:jan.vorel@evolvion.com}{jan.vorel@evolvion.com}}
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We derive a closed-form bound for the color-dependent separation of the solar upper limb near the horizon and a practical estimator for green-flash duration $\tau$ from video. Using standard-air dispersion and a horizon refraction scale $R_0\!\approx\!35.4\arcmin$ (sea level, $T{=}10^\circ$C, $p{=}1013$\,hPa) we obtain
+$\Delta R \approx R_0\,{\Delta(n-1)}/{(n(\lambda_0)-1)}$, where $\Delta(n-1)\coloneqq (n(\lambda_g)-1)-(n(\lambda_r)-1)$; for $\lambda_g\!=\!546.1$\,nm and $\lambda_r\!=\!650$\,nm this yields $\Delta R\!\approx\!12\arcsec$. With descent rate $v_{\mathrm{alt}}\!=\!1920\arcsec/t_{\mathrm{contact}}$ the predicted duration is $\tau\!\approx\!\Delta R/v_{\mathrm{alt}}$ (typically $0.5$--$1.5$\,s). A necessary visibility condition is $\mathrm{FWHM}_{\mathrm{system}}\!<\!\Delta R$. We specify \emph{FlashBench}, a minimal benchmark for field validation, and provide a reproducible implementation.
+\end{abstract}
+
+\noindent\textbf{Keywords:} atmospheric optics; dispersion; green flash; refraction.
+
+\section{Principles and assumptions}
+Atmospheric refraction lifts the apparent solar limb while dispersion makes the lift wavelength dependent. We assume a clear horizon, standard-air dispersion in the visible, and small-angle regimes. Unless stated, $R_0$ refers to sea-level standard air ($T{=}10^\circ$C, $p{=}1013$\,hPa). Observables are the green--red rim separation $\Delta R$ and flash duration $\tau$.
+
+\section{Mechanistic bound}
+Let $n(\lambda)$ denote the refractive index of air. For small variations, refraction near the horizon approximately scales with refractivity $(n-1)$. Taking $R_0$ as a horizon refraction scale,
+\begin{equation}
+\Delta R \approx R_0\frac{(n(\lambda_g)-1)-(n(\lambda_r)-1)}{n(\lambda_0)-1}\,,
+\end{equation}
+with $\lambda_0=589.3$\,nm and $\Delta(n-1)=(n(\lambda_g)-1)-(n(\lambda_r)-1)$. Using standard-air dispersion (e.g., Edl\'en~\cite{Edlen1966} or Ciddor~\cite{Ciddor1996}) gives $\Delta R\approx 12\arcsec$ between 546 and 650\,nm under typical conditions.
+
+\section{Estimator and thresholds}
+From video, estimate $t_{\mathrm{contact}}$ between first and last limb contacts, so $v_{\mathrm{alt}}=1920\arcsec/t_{\mathrm{contact}}$. Then $\tau_{\mathrm{pred}}=\Delta R/v_{\mathrm{alt}}$. For reliable detection, require pixel scale $\le \Delta R/2$ and frame rate $\ge 3/\tau_{\mathrm{pred}}$.
+
+\section{Robustness and adversaries}
+Using a ratio of refractivities makes $\Delta R$ nearly insensitive to uniform density scaling; Edl\'en vs.\ Ciddor dispersion alters the ratio at the percent level~\cite{Edlen1966,Ciddor1996}. Adversaries include large $v_{\mathrm{alt}}$ (low latitudes), inadequate sampling, and layered thermal inversions producing mirage geometry that modifies apparent durations.
+
+\section{Benchmark}
+\textbf{FlashBench} fields (required): latitude, longitude, UTC, optics, pixel scale, fps, $t_{\mathrm{contact}}$, $\tau_{\mathrm{meas}}$, mirage flag, radiosonde ID, video hash.
+Optional enrichment: surface temperature ($^\circ$C), pressure (hPa), relative humidity (\%), visibility (km), cloud cover (\%), and aerosol optical depth at 500\,nm, each with data source (METAR/ASOS/MERRA-2, etc.). Compare $\tau_{\mathrm{meas}}$ to $\tau_{\mathrm{pred}}$ against instrument thresholds.
+
+\section{Related work}
+Green-flash taxonomy and simulations are summarized by Young~\cite{YoungJOSA,YoungSim}. Practical refraction models near the horizon are given by Bennett~\cite{Bennett1982}. Dispersion formulae for air are due to Edl\'en~\cite{Edlen1966} and Ciddor~\cite{Ciddor1996}.
+
+\section{Reproducibility}
+This manuscript is built with \texttt{latexmk}. Results and code are reproducible via \texttt{make reproduce}.
+
+\section{Limitations}
+The bound isolates dispersion; layered inversions and ducts require ray tracing beyond this scope.
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+\end{document}

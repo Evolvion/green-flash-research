@@ -1,0 +1,21 @@
+[
+  {
+    "id": "deltaR_tau_v1",
+    "type": "result",
+    "desc": "Predicted color separation and flash duration",
+    "path": "results/summary.json",
+    "sha256": "7064bf06c3a6eaf53424b43de159c150f6746469813754cf4849d8c6bdce207c",
+    "generated_in_round": 1,
+    "inputs": [
+      "config/example.json"
+    ],
+    "seed": 0,
+    "software": {
+      "python": "3.11",
+      "libs": {
+        "pytest": "8.3.2"
+      }
+    },
+    "commit_hint": "HEAD"
+  }
+]

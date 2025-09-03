@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Green Flash: bounds, estimator, and benchmark"
+authors:
+  - family-names: Jan
+  - family-names: GPT-5 Pro
+    given-names: Research Agent
+date-released: 2025-09-03
+license: MIT
+repository-code: https://example.com/green-flash-research

@@ -1,0 +1,14 @@
+{
+  "lambda_green_nm": 546.1,
+  "lambda_red_nm": 650.0,
+  "lambda_ref_nm": 589.3,
+  "R0_arcmin": 35.4,
+  "t_contact_s": 180.0,
+  "system_fwhm_arcsec": 5.0,
+  "pixel_scale_arcsec_per_px": 3.0,
+  "fps": 60,
+  "site": {
+    "lat_deg": 32.7,
+    "lon_deg": -117.2
+  }
+}

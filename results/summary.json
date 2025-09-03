@@ -1,0 +1,24 @@
+{
+  "delta_R_arcsec": 12.182909601162477,
+  "v_alt_arcsec_per_s": 10.666666666666666,
+  "tau_pred_s": 1.1421477751089824,
+  "detectability": {
+    "required_pixel_scale_arcsec_per_px": 6.091454800581238,
+    "recommended_fps_min": 30
+  },
+  "input": {
+    "lambda_green_nm": 546.1,
+    "lambda_red_nm": 650.0,
+    "lambda_ref_nm": 589.3,
+    "R0_arcmin": 35.4,
+    "t_contact_s": 180.0,
+    "system_fwhm_arcsec": 5.0,
+    "pixel_scale_arcsec_per_px": 3.0,
+    "fps": 60,
+    "site": {
+      "lat_deg": 32.7,
+      "lon_deg": -117.2
+    }
+  },
+  "timestamp": "2025-09-03T11:22:23Z"
+}
